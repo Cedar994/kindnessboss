@@ -1,0 +1,54 @@
+[
+  {
+    "id": "1",
+    "message": "Buy someone a coffee today"
+  },
+  {
+    "id": "2",
+    "message": "Help someone cross the street today"
+  },
+  {
+    "id": "3",
+    "message": "Take your dog for a walk today"
+  },
+  {
+    "id": "4",
+    "message": "Treat someone you don't necessarily like"
+  },
+  {
+    "id": "5",
+    "message": "Be generous to your colleague today"
+  },
+  {
+    "id": "6",
+    "message": "Say yes to do the dishes at work"
+  },
+  {
+    "id" : "7",
+    "message" : "Put 50–100 paper hearts or smiley faces in a box"
+  },
+  {
+    "id" : "8",
+    "message" : "Share overheard compliments."
+  },
+  {
+    "id" : "9",
+    "message" : "Put a surprise note or sketch in with your spouse’s or kid’s lunch."
+  },
+  {
+    "id" : "10",
+    "message" : "Listen. Don’t interrupt"
+  },
+  {
+    "id" : "11",
+    "message" : "Be kind to yourself"
+  },
+  {
+    "id" : "12",
+    "message" : "Pay for someone’s dinner"
+  },
+  {
+    "id" : "13",
+    "message" : "Hold the elevator for someone"
+  }
+]

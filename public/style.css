@@ -1,0 +1,99 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: #fbfe00;
+  display: inline-block;
+  color: #000;
+  overflow: hidden;
+  font-family: Inconsolata;
+  margin: 0;
+  padding: 0;
+}
+
+/* font css */
+p {
+  font-size: 2em;
+}
+.header {
+  width: 100%;
+  height: 60px;
+  display: inline-block;
+}
+.logo {
+  text-indent: 75px;
+  padding: 0px 10px;
+  width: 249px;
+  height: 50px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url(https://media.discordapp.net/attachments/958555896827498526/965763196243824681/IMG-20220415-WA0000.jpg?width=802&height=401);
+  background-size: contain;
+  background-position-x: 20px;
+  font-size: 24px;
+}
+/* main container css */
+.contain {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding: 50px 0px;
+  width: 100%;
+}
+
+/* quote css */
+#quote {
+  color: black;
+  font-family: Inconsolata;
+  position: relative;
+  font-size: 28px;
+}
+
+.primary {
+  margin: 30px 0px;
+  border: 1px solid black;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.primary:hover {
+  background: black;
+  color: white;
+  transition: background 0.5s ease-in;
+}
+/* source css */
+#writer {
+  opacity: 1;
+  font-size: 1em;
+  padding-right: 2em;
+  text-align: right;
+  color: white;
+  font-family: Inconsolata;
+  position: relative;
+}
+
+/* for the after stage of the source */
+.fade {
+  opacity: 0 !important;
+}
+
+/* for the after stage of the quote.*/
+.executed {
+  opacity: 1;
+  right: 0;
+}
+
+/* for the before stage of the quote; should slide right when presented and left when removed.  */
+.reset {
+  opacity: 0;
+  right: 600;
+}
+
+/* for the instructions at the bottom */
+.bottom {
+  bottom: 10;
+  position: absolute;
+  color: #454545;
+  font-family: Inconsolata;
+}
