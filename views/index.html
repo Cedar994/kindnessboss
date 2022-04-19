@@ -1,0 +1,190 @@
+ <html>
+  <head>
+      <meta charset="utf-8" />
+      <title>
+          Quote
+      </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="header">
+      <p>
+        <div class="logo">
+          <span style="line-height:100px">EqualLoveFamily</span>
+      </div>
+      </p>
+    </div>
+    <div class="contain">
+      <p>
+        <h4>
+          welcome to the kindnessboss home page /
+          home of the EqualLoveFamily/
+          A Gentle Reminder to be kind everyday
+      </h4>
+      </p>
+      <div class="executed" id="quote">
+      </div>
+      <div id="writer">
+      </div>
+      <p class="primary">
+       <span>I've done that!</span> 
+      </p>
+    </div>
+     <div class="contain" style="padding:30px 0px;">
+       <p style="font-size:20px;">
+         Share the kindness
+       </p>
+       <p>
+         <span><a target="_blank"><i class="fa fa-twitter fa-x" aria-hidden="true" style="color:black;"></i></a></span>
+       </p>
+   </div>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script>
+generateRandomActOfKindness();
+$(".primary").click(function() {
+        generateRandomActOfKindness();
+});
+
+function generateRandomActOfKindness(){
+  $("#quote").addClass("reset");
+        $("#quote").removeClass("executed");
+        $("#writer").toggleClass("fade");
+  setTimeout(function(){
+        $.ajax({
+            crossOrigin: true,
+            url: "kindnessMessages.json",
+            dataType:"json"
+        }).done(function(act){
+            var random = Math.floor(Math.random() * 12) + 1; // Generate Random Number to choose an act from json
+            var act = act[random];
+            var url = "https://twitter.com/intent/tweet?text=I did a random act of kindness today. " + act.message + "%20%23happyworld";
+            console.log(url);
+            $('a').attr('href', url);
+            $("#quote").html(act.message)
+            $("#quote").addClass("executed");
+            $("#quote").removeClass("reset");
+            $("#writer").toggleClass("fade");
+        }).fail(function()  {
+            alert("Whoops!");
+        });
+  },1000);
+}
+  </script>
+<style>
+    html,body {
+    height: 100%;
+    width: 100%;
+    background: #fbfe00;
+    display:inline-block;
+    color:#000;
+    overflow: hidden;
+    font-family:Inconsolata;
+    margin :0;
+    padding : 0;
+  }
+  
+  /* font css */
+  p {
+    font-size:2em;
+  }
+  .header{
+    width: 100%;
+    height: 60px;
+    display: inline-block;
+  }
+.logo{
+      text-indent: 75px;
+    padding: 0px 10px;
+    width: 249px;
+    height: 50px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(https://media.discordapp.net/attachments/958555896827498526/965763196243824681/IMG-20220415-WA0000.jpg?width=802&height=401);
+    background-size: contain;
+    background-position-x: 20px;
+    font-size: 24px;
+}
+  /* main container css */
+  .contain{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    padding: 50px 0px;
+    width: 100%;
+  }
+
+  /* quote css */
+  #quote{
+    color:black;
+    font-family : Inconsolata;
+    position: relative;
+    font-size: 28px;
+  }
+  
+.primary{
+    margin : 30px 0px;
+    border: 1px solid black;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.primary:hover{
+    background: black;
+    color: white;
+    transition : background .5s ease-in;
+}
+  /* source css */
+  #writer{
+    opacity:1;
+    font-size: 1em;
+    padding-right:2em;
+    text-align: right;
+    color:white;
+    font-family : Inconsolata;
+    position: relative;
+    -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+  }
+
+  /* for the after stage of the source */
+  .fade {
+    opacity:0 !important;
+  }
+
+  /* for the after stage of the quote.*/
+  .executed {
+    opacity:1;
+    right: 0;
+    -webkit-transition: all 2s ease-in-out;
+      -moz-transition: all 2s ease-in-out;
+      -o-transition: all 2s ease-in-out;
+      transition: all 2s ease-in-out;
+  }
+
+  /* for the before stage of the quote; should slide right when presented and left when removed.  */
+  .reset {
+    opacity:0;
+    right:600;
+    -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+  }
+
+  /* for the instructions at the bottom */
+  .bottom {
+    bottom:10;
+    position: absolute;
+    color:#454545;
+    font-family:Inconsolata;
+  }
+</style>
+
+  </html>
